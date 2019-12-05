@@ -40,6 +40,10 @@ const icons = {
     url: 'http://openweathermap.org/img/wn/10d@2x.png',
     name: 'Rain'
   },
+  Drizzle: {
+    url: 'http://openweathermap.org/img/wn/10d@2x.png',
+    name: 'Drizzle'
+  },
   Fog: {
     url: 'http://openweathermap.org/img/wn/50d@2x.png',
     name: 'Fog'

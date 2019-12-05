@@ -2,6 +2,7 @@ import { getDate } from './timeanddata'
 import { mini, convertInCelsius } from './helper'
 
 export async function getInformation (data) {
+  console.log(data)
   const {
     name, weather, main, wind
 
