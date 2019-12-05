@@ -1,61 +1,68 @@
-var path = require('path')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
     main: './src/index.js',
-    list: './src/js/list.js',
-    daily: './src/js/daily.js',
+    list: './src/list.js',
+    daily: './src/daily.js'
+
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].js'
   },
   module: {
-    rules: [{
-      test: /\.s[ac]ss$/i,
-      use: [{
-        loader: MiniCssExtractPlugin.loader
-      },
+    rules: [
       {
-        loader: 'css-loader'
-      },
-      {
-        loader: 'sass-loader'
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }
-      ]
-    }]
+    ]
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false // Enable to remove warnings about conflicting order
+      filename: '[name].css'
     }),
-    new CopyWebpackPlugin([{
-      from: 'src/index.html',
-      to: './'
-    },
-    {
-      from: 'src/list.html',
-      to: './'
-    },
-    {
-      from: 'src/daily.html',
-      to: './'
-    },
-    {
-      context: 'src/img',
-      from: '**/*',
-      to: './img'
-    }
+    new CopyWebpackPlugin([
+      {
+        from: 'src/index.html',
+        to: './'
+      },
+      {
+        from: 'src/list.html',
+        to: './'
+      },
+      {
+        from: 'src/daily.html',
+        to: './'
+      },
+      {
+        context: 'src/img',
+        from: '**/*',
+        to: './img'
+      },
+      {
+        from: 'src/styles/reset.css',
+        to: './'
+      }
     ])
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
-    
+    port: 9000,
+    open: true
   }
 }

@@ -1,4 +1,4 @@
-const weathers = {
+const icons = {
 
   Fewclouds: {
     name: 'Few clouds',
@@ -39,7 +39,15 @@ const weathers = {
   Rain: {
     url: 'http://openweathermap.org/img/wn/10d@2x.png',
     name: 'Rain'
+  },
+  Fog: {
+    url: 'http://openweathermap.org/img/wn/50d@2x.png',
+    name: 'Fog'
+  },
+  Haze: {
+    url: 'http://openweathermap.org/img/wn/50d@2x.png',
+    name: 'Haze'
   }
 
 }
-export default weathers
+export default icons
